@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculatro</title>
+    <link rel="stylesheet" href="Calculator.css" />
+  </head>
+  <body>
+    <div class="calculator-body">
+      <div class="calculator">
+        <div class="input">
+          <input class="text" id="text" type="text"/>
+        </div>
+        <div class="calculator-buttons-del">
+          <button id="c" class="buttons-del" onclick="EventClick('c')">C</button>
+          <button id="del" class="buttons-del" onclick="EventClick('del')">
+            <ion-icon name="backspace-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="calculator-buttons">
+          
+            <button id="seven" class="butt" onclick="EventClick('7')">7</button>
+            <button id="four" class="butt" onclick="EventClick('4')">4</button>
+            <button id="one" class="butt" onclick="EventClick('1')">1</button>
+            <button id="point" class="butt" onclick="EventClick('.')">.</button>
+         
+            <button id="eigth" class="butt" onclick="EventClick('8')">8</button>
+            <button id="five" class="butt" onclick="EventClick('5')">5</button>
+            <button id="two" class="butt" onclick="EventClick('2')">2</button>
+            <button id="zero" class="butt" onclick="EventClick('0')">0</button>
+            <button id="nine" class="butt" onclick="EventClick('9')">9</button>
+            <button id="six" class="butt" onclick="EventClick('6')">6</button>
+            <button id="three" class="butt" onclick="EventClick('3')">3</button>
+            <button id="equels" class="butt" onclick="EventClick('equels')">=</button>
+            <button id="divide" class="butt" onclick="EventClick('divide')">/</button>
+            <button id="multiply" class="butt" onclick="EventClick('multiply')">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <button id="minus" class="butt" onclick="EventClick('minus')">-</button>
+            <button id="plus" class="butt" onclick="EventClick('plus')">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="Calculator.js"></script>
+  </body>
+</html>
