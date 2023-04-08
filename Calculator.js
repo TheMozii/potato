@@ -7,6 +7,7 @@ let sing = {
   minus: false,
   multiply: false,
   divide: false,
+  equals: false,
 };
 
 const EventClick = x => {
@@ -14,62 +15,68 @@ const EventClick = x => {
     case 'plus':
       if (sing.minus === true) {
         math -= Number(text.value);
-        text.value = '';
       } else if (sing.multiply === true) {
         math *= Number(text.value);
-        text.value = '';
       } else if (sing.divide === true) {
         math /= Number(text.value);
+      } else if (sing.equals === true) {
+        math = Number(text.value);
         text.value = '';
+      } else {
+        math += Number(text.value);
       }
-      math += Number(text.value);
       sing = {
         plus: true,
         minus: false,
         multiply: false,
         divide: false,
+        equals: false,
       };
-      console.log(math);
+
       return (text.value = '');
 
     case 'minus':
       if (text.value === '') {
         return (text.value += '-');
-        console.log(text.value);
+        text.value = '';
       }
       if (sing.plus === true) {
         math += Number(text.value);
-        text.value = '';
       } else if (sing.multiply === true) {
         math *= Number(text.value);
-        text.value = '';
       } else if (sing.divide === true) {
         math /= Number(text.value);
-        text.value = '';
       }
-      math === 0 ? (math = Number(text.value)) : (math -= Number(text.value));
+      if (math === 0 && sing.equals === false) {
+        math = Number(text.value);
+      } else {
+        math -= Number(text.value);
+      }
+
+      if (sing.equals === true) {
+        math = Number(text.value);
+      }
 
       sing = {
         plus: false,
         minus: true,
         multiply: false,
         divide: false,
+        equals: false,
       };
-      console.log(math);
 
       return (text.value = '');
 
     case 'multiply':
       if (sing.plus === true) {
         math += Number(text.value);
-        text.value = '';
       } else if (sing.minus === true) {
         math -= Number(text.value);
-        text.value = '';
       } else if (sing.divide === true) {
         math /= Number(text.value);
-        text.value = '';
       } else if (math === 0) {
+        math = Number(text.value);
+      } else if (sing.equals === true) {
         math = Number(text.value);
       } else {
         math *= Number(text.value);
@@ -80,22 +87,21 @@ const EventClick = x => {
         minus: false,
         multiply: true,
         divide: false,
+        equals: false,
       };
-      console.log(math);
 
       return (text.value = '');
 
     case 'divide':
       if (sing.plus === true) {
         math += Number(text.value);
-        text.value = '';
       } else if (sing.multiply === true) {
         math *= Number(text.value);
-        text.value = '';
       } else if (sing.minus === true) {
         math -= Number(text.value);
-        text.value = '';
       } else if (math === 0) {
+        math = Number(text.value);
+      } else if (sing.equals === true) {
         math = Number(text.value);
       } else {
         math /= Number(text.value);
@@ -106,21 +112,35 @@ const EventClick = x => {
         minus: false,
         multiply: false,
         divide: true,
+        equals: false,
       };
 
       return (text.value = '');
-    case 'equels':
+    case 'equals':
       if (sing.plus === true) {
         math += Number(text.value);
+        text.value = math;
       } else if (sing.minus === true) {
         math -= Number(text.value);
+        text.value = math;
       } else if (sing.multiply === true) {
         math *= Number(text.value);
+        text.value = math;
       } else if (sing.divide === true) {
         math /= Number(text.value);
+        text.value = math;
       }
 
-      return (text.value = math);
+      sing = {
+        plus: false,
+        minus: false,
+        multiply: false,
+        divide: false,
+        equals: true,
+      };
+      console.log(`equals: ${math}`);
+
+      return (math = 0);
 
     case 'del':
       const text2 = [...document.getElementById('text').value];
@@ -134,6 +154,7 @@ const EventClick = x => {
         minus: false,
         multiply: false,
         divide: false,
+        equals: false,
       };
       return (math = 0);
 
@@ -141,5 +162,3 @@ const EventClick = x => {
       return (text.value = text.value + x);
   }
 };
-
-console.log(math);
