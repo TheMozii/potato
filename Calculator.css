@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #ff9786;
+  background-color: #6c129d;
 }
 
 .calculator-body {
@@ -35,14 +35,16 @@ body {
 
 .text {
   all: unset;
-  width: 500px;
+  padding-left: 10px;
+  padding-right: 15px;
+  width: 475px;
   height: 80px;
   font-size: 50px;
   border: none;
   border-top-left-radius: 45px;
   border-top-right-radius: 45px;
   border-bottom: solid;
-  background-color: #6c129d;
+  background-color: white;
 }
 
 .calculator-buttons-del {
@@ -55,7 +57,7 @@ body {
   height: 50px;
   font-size: 25px;
   border: none;
-  background-color: #6c129d;
+  background-color: white;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -65,7 +67,7 @@ body {
   height: 25%;
   font-size: 25px;
   border: none;
-  background-color: #6c129d;
+  background-color: white;
   cursor: pointer;
   transition: all 0.3s;
 }
